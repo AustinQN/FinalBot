@@ -1,7 +1,8 @@
 import discord  # Import the Discord library
 import os  # Import the OS library for working with the operating system
 import random  # Import the random module for generating random values
-from dotenv import load_dotenv  # Import the load_dotenv function from the dotenv module
+from dotenv import load_dotenv
+import ec2_metadata  # Import the load_dotenv function from the dotenv module
 
 # Load the environment variables from the .env file
 load_dotenv()
@@ -45,7 +46,7 @@ async def on_message(message):
         if user_message.lower() in ["hello", "hi"]:
             await message.channel.send(f'Hello {username}')
         elif user_message.lower() == "bye":
-            await message.channel.send(f'Bye {username}')
+            await message.channel.send(f'Bye {username} Your EC2 Data:{ec2_metadata.region}')  # Respond with EC2 data
         elif user_message.lower() == "tell me a joke":
             jokes = [
                 "Why did Luis Cross the road",
