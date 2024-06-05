@@ -4,6 +4,9 @@ import random  # Import the random module for generating random values
 from dotenv import load_dotenv
 import ec2_metadata  # Import the load_dotenv function from the dotenv module
 
+print(ec2_metadata.region)
+print(ec2_metadata.instance_id)
+
 # Load the environment variables from the .env file
 load_dotenv()
 
